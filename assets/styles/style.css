@@ -14,3 +14,258 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+/* Basic SetUp */
+body {
+  font-family: var(--font-family-sans);
+  background-color: var(--purple-700);
+  /* mobile background */
+  background-image: url("../images/bg-mobile.svg");
+  background-size: contain;
+  background-position: top left;
+  background-repeat: no-repeat;
+  color: var(--white);
+  min-height: fit-content;
+  display: flex;
+  flex-direction: column;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-family-heading);
+  font-weight: 600;
+}
+
+/* =========================================
+   ACCESSIBILITY
+   ========================================= */
+
+/* Provides a highly visible focus indicator for keyboard users navigating with 'Tab' */
+:focus-visible {
+  outline: 3px dashed var(--magenta-400);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* Specifically rounding the focus outline for the pill-shaped button and circular icons */
+.btn:focus-visible,
+.social-icon:focus-visible {
+  border-radius: 2rem;
+}
+
+/* =========================================
+   LAYOUT & STYLING (Mobile Small - 320px a 390px)
+   ========================================= */
+
+/* Main Container */
+.container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+header {
+  margin-bottom: 3rem;
+}
+
+.logo {
+  width: 130px;
+}
+
+/* Hero Section */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 3rem;
+  flex: 1;
+}
+
+.hero-image {
+  width: 100%;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.hero-text {
+  width: 100%;
+  max-width: 520px;
+}
+
+/* =========================================
+   TYPESCALE RESPONSIVO E FLUIDO (320px a 2560px)
+   ========================================= */
+
+.hero-text h1 {
+  font-family: var(--font-family-heading);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  /* Type scale calc 32px (mobile) and 72px (4K/2560px) */
+  font-size: clamp(2rem, 1.571rem + 2.143vw, 4.5rem);
+  line-height: 1.2;
+}
+
+.hero-text p {
+  font-family: var(--font-family-sans);
+  font-weight: 400;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+  /* Type scale calc 16px (mobile) e 28px (4K/2560px) */
+  font-size: clamp(1rem, 0.893rem + 0.536vw, 1.75rem);
+  line-height: 1.5;
+}
+
+/* Register Button */
+.btn {
+  display: inline-block;
+  background-color: var(--white);
+  color: var(--purple-700);
+  font-family: var(--font-family-heading);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 2rem;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+
+  /* Type scale calc 14px (mobile) e 22px (4K/2560px) */
+  font-size: clamp(0.875rem, 0.804rem + 0.357vw, 1.375rem);
+  /* responsive padding */
+  padding: clamp(0.8rem, 0.736rem + 0.321vw, 1.25rem)
+    clamp(3.5rem, 3.286rem + 1.071vw, 5rem);
+}
+
+.btn:hover,
+.btn:active {
+  background-color: var(--magenta-400);
+  color: var(--purple-700);
+  cursor: pointer;
+}
+
+/* Social Icons */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+}
+
+.social-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--white);
+  border-radius: 50%;
+  color: var(--white);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover,
+.social-icon:active {
+  color: var(--magenta-400);
+  border-color: var(--magenta-400);
+}
+
+/* Attribution Footer */
+.attribution {
+  font-size: 0.75rem;
+  text-align: center;
+  padding: 1rem;
+  color: rgb(255, 255, 255);
+}
+
+.attribution a {
+  color: var(--white);
+  text-decoration: none;
+}
+
+.attribution a:hover,
+.attribution a:active {
+  text-decoration: underline;
+}
+
+/* =========================================
+   RESPONSIVE LAYOUT MEDIA QUERIES 
+   ========================================= */
+
+/* Transition for Desktop (> 1024px) */
+@media (min-width: 1024px) {
+  body {
+    /* desktop background */
+    background-image: url("/assets/images/bg-desktop-1440x800.svg");
+    background-size: auto;
+    max-height: 100vh;
+  }
+
+  .container {
+    max-width: 1440px;
+    padding: 3rem 4rem;
+    overflow: hidden;
+  }
+
+  header {
+    margin-bottom: 2rem;
+  }
+
+  .logo {
+    width: 160px;
+  }
+
+  main {
+    /* Transitions the layout from a vertical mobile view to side-by-side columns */
+    flex-direction: row;
+    text-align: left;
+    align-items: center; /* Aligns the content vertically */
+    gap: 4rem;
+  }
+
+  /* Ensures that both sides share the space fairly and fluidly. */
+  .hero-image,
+  .hero-text {
+    flex: 1;
+    max-width: 100%; /* Prevents the image or text from exceeding the container width */
+  }
+
+  .hero-image img {
+    margin: 0; /* Removes automatic centering */
+  }
+
+  .social-links {
+    justify-content: flex-end; /* Icons to the right on desktop */
+    margin-top: auto;
+    padding-top: 1rem;
+  }
+}
+
+/* Big screens and Ultra-Res (> 1920px) */
+@media (min-width: 1920px) {
+  .container {
+    max-width: 1920px;
+    padding: 6rem 8rem;
+  }
+
+  main {
+    gap: 6rem;
+  }
+
+  .hero-text p {
+    /* Limits the width of the paragraph on large screens */
+    max-width: 650px;
+  }
+}

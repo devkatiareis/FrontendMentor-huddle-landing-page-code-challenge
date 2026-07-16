@@ -1,0 +1,16 @@
+/* Style Guide Variables */
+:root {
+  --purple-700: hsl(257, 40%, 49%);
+  --magenta-400: hsl(300, 69%, 71%);
+  --white: #ffffff;
+
+  --font-family-sans: "Open Sans", sans-serif;
+  --font-family-heading: "Poppins", sans-serif;
+}
+
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}

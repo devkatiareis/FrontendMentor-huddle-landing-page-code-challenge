@@ -208,7 +208,7 @@ main {
 @media (min-width: 1024px) {
   body {
     /* desktop background */
-    background-image: url("/assets/images/bg-desktop.svg");
+    background-image: url("../assets/images/bg-desktop.svg");
     background-size: auto;
     max-height: 100vh;
   }
